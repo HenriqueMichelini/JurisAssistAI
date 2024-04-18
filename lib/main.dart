@@ -5,7 +5,7 @@ import 'package:jaai/pages/register.dart';
 void main() {
   runApp(
     const MaterialApp(
-      home: Dashboard(),
+      home: Register(),
     ),
   );
 }
