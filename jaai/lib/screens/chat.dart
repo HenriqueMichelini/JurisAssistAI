@@ -4,9 +4,10 @@ class Chat extends StatelessWidget {
   Chat({super.key});
 
   final textFieldContainer = Container(
+    height: 50,
     decoration: BoxDecoration(
       color: Colors.white,
-      borderRadius: BorderRadius.circular(30.0),
+      borderRadius: BorderRadius.circular(15.0),
       boxShadow: [
         BoxShadow(
           color: Colors.grey.withOpacity(0.5),
@@ -16,6 +17,7 @@ class Chat extends StatelessWidget {
         ),
       ],
     ),
+    child: TextField(),
   );
 
   @override
@@ -24,7 +26,11 @@ class Chat extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.all(10),
-        child: textFieldContainer,
+        child: Column(
+          children: [
+            textFieldContainer,
+          ],
+        ),
       ),
     );
   }
