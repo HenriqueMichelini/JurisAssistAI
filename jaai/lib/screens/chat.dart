@@ -17,7 +17,30 @@ class Chat extends StatelessWidget {
         ),
       ],
     ),
-    child: TextField(),
+    child: Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Row(
+        children: <Widget>[
+          const Expanded(
+            child: TextField(
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 16,
+              ),
+              decoration: InputDecoration(
+                hintText: "Type your message...",
+                hintStyle: TextStyle(color: Colors.grey),
+                border: InputBorder.none,
+              ),
+            ),
+          ),
+          IconButton(
+            icon: const Icon(Icons.send, color: Colors.blue),
+            onPressed: () {},
+          ),
+        ],
+      ),
+    ),
   );
 
   @override
