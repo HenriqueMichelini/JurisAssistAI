@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:jaai/screens/chat.dart';
+import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 import 'package:jaai/screens/chat_copy.dart';
 
 void main() {
+  sqfliteFfiInit();
+  databaseFactory = databaseFactoryFfi;
   runApp(const MyApp());
 }
 
@@ -11,7 +13,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Flutter Demo',
       home: ChatT(),
     );
