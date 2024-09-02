@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:jaai/components/message_bubble.dart';
 import 'package:jaai/components/styled_container.dart';
 import 'package:jaai/models/message.dart';
+import 'package:jaai/services/dart_logic.dart';
 import 'package:jaai/services/database_service.dart';
 
 class Chat extends StatefulWidget {
@@ -33,14 +34,27 @@ class _ChatState extends State<Chat> {
     super.dispose();
   }
 
-  void _sendMessage() {
+  void _sendMessage() async {
     final messageText = _controller.text.trim();
     if (messageText.isNotEmpty) {
       _databaseService.insertMessage(messageText, true);
       _controller.clear();
-      setState(() {
+
+      // Instantiate and use the PythonToDart class
+      var pyOutput = await PythonToDart.instance.runPythonScript(
+          messageText, ["oi", "blz"] // Replace with your actual keywords
+          );
+
+      // Insert the Python output into the database
+      _databaseService.insertMessage(pyOutput, false);
+
+      setState(() {});
+
+      // Ensure the scroll happens after the build phase
+      WidgetsBinding.instance.addPostFrameCallback((_) {
         _scrollToBottom();
       });
+
       _focusNode.requestFocus();
     }
   }
