@@ -17,12 +17,11 @@ class MessageBubble extends StatelessWidget {
       alignment: isSentByMe ? Alignment.centerRight : Alignment.centerLeft,
       child: Container(
         constraints: BoxConstraints(
-          maxWidth: MediaQuery.of(context).size.width *
-              0.7, // Max width of 70% of screen
+          maxWidth: MediaQuery.of(context).size.width * 0.7,
         ),
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
-          color: isSentByMe ? Colors.green[100] : Colors.grey[300],
+          color: isSentByMe ? Colors.green[100] : Colors.blue[200],
           borderRadius: BorderRadius.circular(15.0),
           boxShadow: [
             BoxShadow(
@@ -34,7 +33,8 @@ class MessageBubble extends StatelessWidget {
           ],
         ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
+          crossAxisAlignment:
+              isSentByMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
           children: [
             Text(
               message,

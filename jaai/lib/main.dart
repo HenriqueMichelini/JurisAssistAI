@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
-import 'package:jaai/screens/chat_copy.dart';
+import 'package:jaai/screens/chat.dart';
 
 void main() {
   sqfliteFfiInit();
@@ -13,9 +13,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Flutter Demo',
-      home: ChatT(),
+      home: Chat(),
     );
   }
 }
